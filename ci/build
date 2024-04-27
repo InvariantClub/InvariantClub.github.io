@@ -4,7 +4,6 @@ set -euxo pipefail
 
 cd src
 
-cabal update
 cabal build
 
 cabal exec site -- clean

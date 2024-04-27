@@ -167,6 +167,10 @@ main = do
           >>= lqipImages imageMetaData
           >>= relativizeUrls
 
+    match "CNAME" $ do
+      route idRoute
+      compile copyFileCompiler
+
     match "index.html" $ do
       route idRoute
       compile $ do

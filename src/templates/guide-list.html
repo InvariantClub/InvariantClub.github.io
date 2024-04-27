@@ -1,0 +1,19 @@
+<section class="posts">
+  $for(guides)$
+  <div class="post">
+    <div class="post-stuff">
+      <div class="title">
+        <h3><a href="$url$">$title$</a></h3>
+        <div class="image" style="background-image: url($previewImage$)">
+        </div>
+      </div>
+      <div class="post-content">
+        <p>$summary$
+        <a href="$url$">Read more,</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  $endfor$
+</section>
+

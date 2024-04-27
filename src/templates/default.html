@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>$title$ — Invariant Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The only constant is change :)" />
+
+  <link rel="stylesheet" href="/css/css.css?$commit$" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+
+  <link rel="preconnect" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+  <link href="//fonts.googleapis.com/css2?family=Work+Sans&family=Fira+Code&family=Literata&display=swap" rel="stylesheet">
+
+  <meta property="og:title" content="$title$ - Invariant Club"/>
+  <meta property='og:url' content="$rootUrl$$url$" />
+  $if(imageDescription)$
+    <meta property="og:image" content="$rootUrl$/images/$previewImage$" />
+    <meta property="og:description" content="$imageDescription$"/>
+  $endif$
+</head>
+<body>
+  <div class="banner">
+    <h1 class="banner"><a href="/">Invariant Club</a>
+        <small>The only constant is change :)</small>
+    </h1>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/guides.html">Guides</a>
+    </div>
+  </div>
+
+  $body$
+
+  <footer>
+    <p>Built with love ❤️ on our one and only planet 🌏 :)
+    </p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<section class="posts">
+  $for(posts)$
+  <div class="post">
+    <div class="post-stuff">
+      <div class="title">
+        <h3><a href="$url$">$title$</a></h3>
+        <p class="date">$date$</p>
+        <div class="image" style="background-image: url($previewImage$)">
+        </div>
+        <!-- <div class="authors"> -->
+        <!--   by -->
+        <!--   $for(authors)$ -->
+        <!--     $body$$sep$, -->
+        <!--   $endfor$ -->
+        <!-- </div> -->
+      </div>
+      <div class="post-content">
+        <p>$summary$
+        <a href="$url$">Read more,</a>
+        </p>
+
+        <!-- <span class="tags"> -->
+        <!-- $for(tags)$ -->
+        <!--   <a href="/tags/$body$.html" class="tag $body$">$body$</a>$sep$, -->
+        <!-- $endfor$ -->
+        <!-- </span> -->
+      </div>
+    </div>
+  </div>
+  $endfor$
+</section>
+

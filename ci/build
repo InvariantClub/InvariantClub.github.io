@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+cd src
+
+cabal update
+cabal build
+
+cabal exec site -- clean
+cabal exec site -- build

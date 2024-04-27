@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Getting started with Metadelta &mdash; Setting up a GitHub action — Invariant Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The only constant is change :)" />
+
+  <link rel="stylesheet" href="../css/css.css?fcbfdd2171acfd4c20be44a1c6d294f9f791c063-1 on Sat Apr 27 13:51:52 2024 +0100" />
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+
+  <link rel="preconnect" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+  <link href="//fonts.googleapis.com/css2?family=Work+Sans&family=Fira+Code&family=Literata&display=swap" rel="stylesheet">
+
+  <meta property="og:title" content="Getting started with Metadelta &mdash; Setting up a GitHub action - Invariant Club" />
+  <meta property="og:url" content="https://invariant.club/guides/getting-started-with-metadelta.html" />
+  
+</head>
+<body>
+  <div class="banner">
+    <h1 class="banner"><a href="../">Invariant Club</a>
+        <small>The only constant is change :)</small>
+    </h1>
+    <div class="links">
+      <a href="../">Home</a>
+      <a href="../guides.html">Guides</a>
+    </div>
+  </div>
+
+  <div class="offerings">
+  <div class="offering post">
+    <div class="top">
+      <div class="title">
+        <h2> Getting started with Metadelta &mdash; Setting up a GitHub action
+        </h2>
+      </div>
+      <div class="image" style="background-image: url(/images/blog/github-action.webp">
+      </div>
+      <div class="content">
+        <h2 id="motivation">Motivation</h2>
+<p>Metadelta’s main function is to compute <em>differences</em> between different Hasura
+versions. The most natural place to compute such a difference is, if you use
+GitHub, during a Pull Request (PR): You compare the permission changes that a
+PR seeks to introduce.</p>
+<p>This, then, is what we will implement in what follows: We will set up an
+action that comments with a link to the Metadelta UI, showing the diff of that
+particular PR. A new link will be provided each time the PR branch is updated.</p>
+<h2 id="the-setup">The setup</h2>
+<p>The essential requirement is that you have in your repo somewhere a <code>hasura</code>
+folder with something like the following structure:</p>
+<pre class="shell"><code>./hasura/metadata
+  - actions.graphql
+  - actions.yaml
+  ...
+  databases/
+  ...
+  - version.yaml</code></pre>
+<p>If you’d like to follow along with our repo instead of your own, you can start
+with our <a href="https://github.com/InvariantClub/demo-database">demo-database</a> which
+has everything you need.</p>
+<h2 id="the-details">The details</h2>
+<p>So, the set up is pretty straightfoward. If you just want to view the finished
+<a href="https://github.com/InvariantClub/demo-database/blob/main/.github/workflows/compute-permission-diff.yaml">GitHub workflow
+file</a>
+you can; but otherwise, we’ll go through all the steps.</p>
+<p><strong>The header</strong></p>
+<p>We start with a simple workflow that runs on pull requests. We require two
+kinds of permissions: we need to write <code>contents</code> as we’re going to upload an
+artifact later, and we want to write to the pull-request to comment on it.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Compute permission diff on PR</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">compute-diff</span><span class="kw">:</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">permissions</span><span class="kw">:</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> write</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">pull-requests</span><span class="kw">:</span><span class="at"> write</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span></code></pre></div>
+<p>The first steps:</p>
+<p><strong>1. Check out the two versions of the code</strong></p>
+<p>Pretty simple; we just check out the respective versions to an <code>/old</code> and
+<code>/new</code> path.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout the PR as the 'new' source</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">path</span><span class="kw">:</span><span class="at"> ./new</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">ref</span><span class="kw">:</span><span class="at"> ${{ github.event.pull_request.head.sha }}</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout `main` as the 'old' source</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">path</span><span class="kw">:</span><span class="at"> ./old</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">ref</span><span class="kw">:</span><span class="at"> main</span></span></code></pre></div>
+<p><strong>2. Run Metadelta to produce a <code>diff.json</code> file</strong></p>
+<p>The juicy part; we run Metadelta, from <a href="https://github.com/orgs/InvariantClub/packages/container/package/metadelta-cli">our
+docker image</a>, referring to the <code>./old</code> and <code>./new</code> paths we checked out
+earlier.</p>
+<p>A few detalis:</p>
+<ul>
+<li>We set some labels so that it displays nicely in the UI and is clear what
+commits it is referencing,</li>
+<li>We compute a small check to test whether we <em>actually</em> found a difference,
+In subsequent steps this will be used to check if we upload an artifact and
+post a comment on GitHub.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run metadelta comparing old and new</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">id</span><span class="kw">:</span><span class="at"> metadelta</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>          docker run -i \</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            -v $PWD:/work \</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            ghcr.io/invariantclub/metadelta-cli \</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            diff \</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            -o /work/old/hasura/metadata/ \</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            --oldLabel 'main' \</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            -n /work/new/hasura/metadata/ \</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            --newLabel '${{ github.event.pull_request.head.label }} @ ${{ github.event.pull_request.head.sha }}' \</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            --newLink '${{ github.event.pull_request.html_url }}' \</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            &gt;diff.json || true</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>          echo &quot;anythingDifferent=$(test -s diff.json || echo 'true')&quot; &gt;&gt; &quot;$GITHUB_OUTPUT&quot;</span></code></pre></div>
+<p><strong>3. Upload the <code>diff.json</code> file as a GitHub artifact</strong></p>
+<p>Pretty straightforward: We are going to upload it so that it can be downloaded
+by the UI later on. The only thing to note is that we only do the upload if
+the previous step found a difference. In reality, it’s probably far more
+common for PRs to <em>not</em> be changing permissions; so it’s important to skip any
+extra work in those cases.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Uploading the diff as an artifact</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">id</span><span class="kw">:</span><span class="at"> artifact</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">if</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">          # Only run if we detected changes.</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">          ${{ steps.metadelta.outputs.anythingDifferent != 'true' }}</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">name</span><span class="kw">:</span><span class="at"> metadelta-diff</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">path</span><span class="kw">:</span><span class="at"> diff.json</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">retention-days</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span></code></pre></div>
+<p><strong>4. Comment on the PR with a link</strong></p>
+<p>This is the final step. The Metadelta UI can load a GitHub artifact completely
+client-side, (supposing you have configured the UI, in the <a href="https://metadelta.invariant.club/settings">settings tab</a>, with a GitHub access
+token, which is, unfortunately, <a href="https://docs.github.com/en/rest/actions/artifacts?apiVersion=2022-11-28#download-an-artifact">a requirement for querying GitHub artifacts,
+even public ones</a>); so all we need to do is prepare an appropriate URL, and post
+that as a comment on the PR.</p>
+<p>As the above step was run conditionally, so too we want to run this one on the
+condition that the previous step was completed.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Comment with Metadelta link</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> peter-evans/create-or-update-comment@v4.0.0</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">if</span><span class="kw">:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">          # Only run if we uploaded an artifact</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">          ${{ steps.artifact.outcome == 'success' }}</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">token</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">issue-number</span><span class="kw">:</span><span class="at"> ${{ github.event.pull_request.number }}</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">          body</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            [View the permission diff in Metadelta :eyes:](https://metadelta.invariant.club/explorer?githubArtifact=${{ steps.artifact.outputs.artifact-id }}/${{ github.repository_owner }}/${{ github.event.repository.name }})</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            This is was triggered from GitHub Actions [run ${{ github.run_number }}](https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/actions/runs/${{ github.run_id }}/).</span></code></pre></div>
+<h2 id="thats-it">That’s it!</h2>
+<p>Putting that all together in <a href="https://github.com/InvariantClub/demo-database/blob/main/.github/workflows/compute-permission-diff.yaml">a single workflow file, perhaps called
+<code>compute-permission-diff.yaml</code></a>
+does the job!</p>
+<p>You are now computing diffs on all PRs, and you will be notified when the
+permissions have changed in any way, and if so, you will receive a link to
+review those diffs in the Metadelta UI!</p>
+<p>Hopefully this has been useful :)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <footer>
+    <p>Built with love ❤️ on our one and only planet 🌏 :)
+    </p>
+  </footer>
+</body>
+</html>

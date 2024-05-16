@@ -96,7 +96,7 @@ Pretty simple; we just check out the respective versions to an `/old` and
 **2. Run Metadelta to produce a `diff.json` file**
 
 The juicy part; we run Metadelta, from <a
-href="https://github.com/orgs/InvariantClub/packages/container/package/metadelta-cli">our
+href="https://github.com/InvariantClub/metadelta/pkgs/container/metadelta">our
 docker image</a>, referring to the `./old` and `./new` paths we checked out
 earlier.
 
@@ -114,7 +114,7 @@ commits it is referencing,
         run: |
           docker run -i \
             -v $PWD:/work \
-            ghcr.io/invariantclub/metadelta-cli \
+            ghcr.io/invariantclub/metadelta \
             diff \
             -o /work/old/hasura/metadata/ \
             --oldLabel 'main' \

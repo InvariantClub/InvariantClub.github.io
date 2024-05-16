@@ -98,8 +98,7 @@
       <h3> Run Metadelta locally </h3>
 
       <p>If you would like to test out the Metadelta CLI locally, you can
-      use
-      <a href="https://github.com/orgs/InvariantClub/packages/container/package/metadelta-cli">our docker image</a>.
+      use <a href="https://github.com/InvariantClub/metadelta/pkgs/container/metadelta">our docker image</a>.
 
       <p>As an example this invokes the <code>diff</code>
       command on two folders in the present working directory called
@@ -110,7 +109,7 @@
       <pre>
 docker run -i \
   -v $$PWD:/work \
-  ghcr.io/invariantclub/metadelta-cli \
+  ghcr.io/invariantclub/metadelta \
   diff \
   -o /work/old/hasura/metadata \
   -n /work/new/hasura/metadata \

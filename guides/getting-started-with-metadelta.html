@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="The only constant is change :)" />
 
-  <link rel="stylesheet" href="../css/css.css?496f9e8a070b2898d2b22c4939f3ad7fa5e9f2ae-1 on Thu May 16 14:08:20 2024 +0100" />
+  <link rel="stylesheet" href="../css/css.css?14b5045901ac7b0586b03c6264daf0fe97040ea9-1 on Thu May 16 14:58:59 2024 +0100" />
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
 
   <link rel="preconnect" href="//fonts.googleapis.com">
@@ -98,7 +98,7 @@ artifact later, and we want to write to the pull-request to comment on it.</p>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">path</span><span class="kw">:</span><span class="at"> ./old</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">ref</span><span class="kw">:</span><span class="at"> main</span></span></code></pre></div>
 <p><strong>2. Run Metadelta to produce a <code>diff.json</code> file</strong></p>
-<p>The juicy part; we run Metadelta, from <a href="https://github.com/orgs/InvariantClub/packages/container/package/metadelta-cli">our
+<p>The juicy part; we run Metadelta, from <a href="https://github.com/InvariantClub/metadelta/pkgs/container/metadelta">our
 docker image</a>, referring to the <code>./old</code> and <code>./new</code> paths we checked out
 earlier.</p>
 <p>A few detalis:</p>
@@ -114,7 +114,7 @@ post a comment on GitHub.</li>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>          docker run -i \</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            -v $PWD:/work \</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            ghcr.io/invariantclub/metadelta-cli \</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            ghcr.io/invariantclub/metadelta \</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            diff \</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            -o /work/old/hasura/metadata/ \</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            --oldLabel 'main' \</span>

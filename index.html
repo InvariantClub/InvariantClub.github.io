@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="The only constant is change :)" />
 
-  <link rel="stylesheet" href="./css/css.css?496f9e8a070b2898d2b22c4939f3ad7fa5e9f2ae-1 on Thu May 16 14:08:20 2024 +0100" />
+  <link rel="stylesheet" href="./css/css.css?14b5045901ac7b0586b03c6264daf0fe97040ea9-1 on Thu May 16 14:58:59 2024 +0100" />
   <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
 
   <link rel="preconnect" href="//fonts.googleapis.com">
@@ -128,8 +128,7 @@
       <h3> Run Metadelta locally </h3>
 
       <p>If you would like to test out the Metadelta CLI locally, you can
-      use
-      <a href="https://github.com/orgs/InvariantClub/packages/container/package/metadelta-cli">our docker image</a>.
+      use <a href="https://github.com/InvariantClub/metadelta/pkgs/container/metadelta">our docker image</a>.
 
       <p>As an example this invokes the <code>diff</code>
       command on two folders in the present working directory called
@@ -140,7 +139,7 @@
       <pre>
 docker run -i \
   -v $PWD:/work \
-  ghcr.io/invariantclub/metadelta-cli \
+  ghcr.io/invariantclub/metadelta \
   diff \
   -o /work/old/hasura/metadata \
   -n /work/new/hasura/metadata \

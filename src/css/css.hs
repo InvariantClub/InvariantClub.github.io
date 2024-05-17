@@ -359,6 +359,6 @@ fonts :: Css
 fonts = do
   body ? do
     coreTextFont
-    fontSize (px 26)
+    fontSize (px 22)
     color textColour
 

@@ -22,7 +22,7 @@ allBorderRadius n = borderRadius n n n n
 margin0  = margin  (px 0) (px 0) (px 0) (px 0)
 padding0 = padding (px 0) (px 0) (px 0) (px 0)
 
-coreTextFont = fontFamily ["Work Sans"] [sansSerif]
+coreTextFont = fontFamily ["Open Sans"] [sansSerif]
 monoFont     = fontFamily ["Fira Code"] [monospace]
 titleFont    = fontFamily ["Literata"]  [sansSerif]
 menuFont     = coreTextFont
@@ -214,6 +214,9 @@ centralLayout = do
     span # ".comment" ? do
       color commentColour
 
+  div # ".par" ? do
+    marginLeft (px 25)
+
 
 offerings :: Css
 offerings = do
@@ -312,7 +315,10 @@ headings = do
     coreTextFont
 
   h3 ? do
-    borderBottom (px 1) solid otherStrongColour
+    marginTop (px 50)
+    color (darken 0.2 otherStrongColour)
+    fontSize (em 1.3)
+    coreTextFont
 
   h1 # ".banner" ? do
     fontSize $ em 1.6
@@ -338,7 +344,8 @@ basics = do
     padding0
 
   p <> li <> pre ? do
-    lineHeight (px 40)
+    lineHeight (em 2)
+    fontSize (em 1.2)
 
   a ? do
     color black

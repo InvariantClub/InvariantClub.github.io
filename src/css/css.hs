@@ -132,7 +132,7 @@ guides = do
                 backgroundColor (lighten 0.3 c)
                 hover & backgroundColor (lighten 0.6 c)
 
-    mkGuide ".guide.one"   linkColour
+    mkGuide ".guide.one"   (lighten 0.6 linkColour)
     mkGuide ".guide.two"   added
     mkGuide ".guide.three" replaced
 

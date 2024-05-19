@@ -24,7 +24,7 @@ padding0 = padding (px 0) (px 0) (px 0) (px 0)
 
 coreTextFont = fontFamily ["Open Sans"] [sansSerif]
 monoFont     = fontFamily ["Fira Code"] [monospace]
-titleFont    = fontFamily ["Literata"]  [sansSerif]
+titleFont    = fontFamily ["Libre Baskerville"] [sansSerif]
 menuFont     = coreTextFont
 
 bgColour :: Color
@@ -277,6 +277,9 @@ headings = do
     allMargin (px 8)
     allPadding (px 2)
     background linkColour
+    position relative
+    left (px (-15))
+    top (px 10)
     color white
     fontSize (em 0.5)
     monoFont
@@ -319,10 +322,12 @@ headings = do
     marginTop (px 50)
     color (darken 0.2 otherStrongColour)
     fontSize (em 1.3)
-    coreTextFont
+    fontStyle italic
+    fontWeight normal
 
   h1 # ".banner" ? do
     fontSize $ em 1.6
+    fontStyle italic
     small ? do
       fontSize $ em 0.6
       fontStyle italic

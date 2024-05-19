@@ -41,7 +41,8 @@ softTextColour = "#989888"
 
 linkColour :: Color
 -- linkColour = "#c832ff"
-linkColour = "#9a99dd"
+-- linkColour = "#9a99dd"
+linkColour = darken 0.2 otherStrongColour
 
 otherStrongColour :: Color
 otherStrongColour = "#6232ff"

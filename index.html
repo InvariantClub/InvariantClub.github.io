@@ -7,12 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="The only constant is change :)" />
 
-  <link rel="stylesheet" href="./css/css.css?cc86c737c80a7028d20c27575fb0acc9c345bf81-1 on Fri May 17 09:27:48 2024 +0100" />
+  <link rel="stylesheet" href="./css/css.css?2efd69e2cbc9ffa78b0b0229cf48a39bc9c2ac9c-1 on Sun May 19 13:49:16 2024 +0100" />
   <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
 
   <link rel="preconnect" href="//fonts.googleapis.com">
   <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
-  <link href="//fonts.googleapis.com/css2?family=Work+Sans&family=Fira+Code&family=Literata&display=swap" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css2?family=Open+Sans&family=Fira+Code&family=Literata&display=swap" rel="stylesheet">
 
   <meta property="og:title" content="Home - Invariant Club" />
   <meta property="og:url" content="https://invariant.club/index.html" />
@@ -21,7 +21,7 @@
 <body>
   <div class="banner">
     <h1 class="banner"><a href="./">Invariant Club</a>
-        <small>The only constant is change :)</small>
+        <!-- <small>The only constant is change :)</small> -->
     </h1>
     <div class="links">
       <a href="./">Home</a>
@@ -55,6 +55,8 @@
 
     <div class="content">
       <h3>About</h3>
+
+      <div class="par">
       <p>
       <a href="https://hasura.io/">Hasura</a> is a lovely and widely-used GraphQL
       server. An important part of
@@ -75,8 +77,11 @@
       roles impacted, the tables impacted, etc. This is where Metadelta
       comes in!
       </p>
+      </div>
 
       <h3> Features </h3>
+
+      <div class="par">
       <ul>
         <li> 👀 View the permission information for a particular metadata
           instance,
@@ -89,6 +94,7 @@
           understanding of permission changes.
         </li>
       </ul>
+      </div>
 
       <h3> Try it out! </h3>
 
@@ -127,6 +133,7 @@
 
       <h3> Run Metadelta locally </h3>
 
+      <div class="par">
       <p>If you would like to test out the Metadelta CLI locally, you can
       use <a href="https://github.com/InvariantClub/metadelta/pkgs/container/metadelta">our docker image</a>.
 
@@ -147,24 +154,26 @@ docker run -i \
 
       <p>Then you can take the <code>diff.json</code> file and paste it into
       the <a href="https://metadelta.invariant.club/new">Metadelta UI</a>.
-      For a more convenient workflow, we would recommend an integration
-      similar to the
-      <a href="https://github.com/InvariantClub/demo-database/?tab=readme-ov-file#github-action-integration">GitHub
-        Action example</a>.
+      For a more convenient workflow, we recommend using the <a href="https://github.com/InvariantClub/metadelta-github-action">GitHub
+        Action</a> integration, which you can
+      <a href="https://github.com/InvariantClub/demo-database/blob/main/.github/workflows/compute-permission-diff.yaml#L13">see in action on our demo-database.</a>
       </p>
 
-      If you would like to just run it on a pre-made example, you can clone
-      our <code><a href="https://github.com/InvariantClub/demo-database/">
-          demo-database</a></code> repo and use the scripts:
+      <p>If you would like to just run it on a pre-made example, you can clone
+      our <a href="https://github.com/InvariantClub/demo-database/">
+          demo-database</a> repo and use the scripts:
+      </p>
 
       <pre>git clone https://github.com/InvariantClub/demo-database
 cd demo-database/
 ./scripts/compute-demo-diff.sh 98b1123 3b627cd</pre>
 
       <p>And again paste the resulting JSON output to the UI.</p>
+      </div>
 
       <h3> Supporting this project </h3>
 
+      <div class="par">
       <p>Metadelta will always be free for open-source projects, and is,
       while we're in beta, free for any project at all.</p>
 
@@ -173,10 +182,12 @@ cd demo-database/
       via email: <a href="mailto:noonsilk+metadelta@gmail.com">noonsilk+metadelta@gmail.com</a>
       or on our issue tracker: <a href="https://github.com/InvariantClub/metadelta/issues">metadelta/issues</a>.
       </p>
+      </div>
 
 
       <h3> FAQs </h3>
 
+      <div class="par">
       <ul>
         <li>
           <b>Q:</b> Will this be compatible with Hasura V3?
@@ -191,6 +202,7 @@ cd demo-database/
       <p> <small> Note: Metadelta is not an official Hasura product; it is
         provided and supported entirely by Invariant Club, an independent
         third party. </small> </p>
+      </div>
     </div>
   </div>
 </div>

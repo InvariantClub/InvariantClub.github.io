@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="The only constant is change :)" />
 
-  <link rel="stylesheet" href="./css/css.css?17012b76605c8d893c44f7bbe1698c9c7fdc80f3-1 on Sun May 19 15:05:32 2024 +0100" />
+  <link rel="stylesheet" href="./css/css.css?bc34bf94bdc845d4b9064cff80c579c15b3c05c8-1 on Tue Jan 21 11:11:11 2025 +0000" />
   <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
 
   <link rel="preconnect" href="//fonts.googleapis.com">
@@ -20,197 +20,17 @@
 </head>
 <body>
   <div class="banner">
-    <h1 class="banner"><a href="./">Invariant Club</a>
-        <!-- <small>The only constant is change :)</small> -->
+    <h1 class="banner"><a href="./">Our Baby Game</a>
     </h1>
-    <div class="links">
-      <a href="./">Home</a>
-      <a href="./guides.html">Guides</a>
-    </div>
   </div>
 
   <div class="offerings">
   <div class="offering">
     <div class="top">
       <div class="title">
-        <h2> <em>Metadelta</em>
-          <span class="beta">beta</span> for Hasura
-        </h2>
-
-        <h3>Explore Hasura permissions with confidence!</h3>
-
-        <h4>
-          Metadelta allows you to view Hasura's sophisticated permission
-          rules, and in particular <i>changes</i> to those permissions. The
-          "diff" mode is useful during code review, to gain a full
-          understanding of changes before approving, and the "single" mode is
-          useful for exploration of an existing permission setup.
-        </h4>
-      </div>
-      <div class="product-image">
-        <img onload="this.src = './images/metadelta/ex1.webp'; this.onload = null;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAHMAQMAAAANvulcAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAGUExURff17f///wmP8LQAAAABYktHRAH/Ai3eAAAAP0lEQVR42u3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODLAJ/sAAE7vMjzAAAAAElFTkSuQmCC" src="./images/metadelta/ex1.webp" />
-        <img onload="this.src = './images/metadelta/ex2.webp'; this.onload = null;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAJpAQMAAABhCFLJAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAGUExURfTz7f///wBbd7oAAAABYktHRAH/Ai3eAAAAPUlEQVR42u3BMQEAAADCoPVP7WsIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAOaQAABFJvHWgAAAABJRU5ErkJggg==" src="./images/metadelta/ex2.webp" />
-      </div>
-    </div>
-
-    <div class="content">
-      <h3>About</h3>
-
-      <div class="par">
-      <p>
-      <a href="https://hasura.io/">Hasura</a> is a lovely and widely-used GraphQL
-      server. An important part of
-      most Hasura setups is the configuration of <em>permissions</em> for
-      accessing and manipulating the underlying records in the database.
-      </p>
-
-      <p> <em>Metadelta</em> allows you view these permissions in a
-      convenient way; either in a "single" way (just point it at a
-      Hasura metdata folder), or a "diff" way (point it at an "old" and
-      a "new" one!)
-      </p>
-
-      <p> The advantage of using Metadelta for exploring the permissions
-      (especially the permission <em>changes</em>) is that, when your
-      permission architecture gets even moderately complicated, it can be
-      hard to get a complete and comprehensive view of all the changes: the
-      roles impacted, the tables impacted, etc. This is where Metadelta
-      comes in!
-      </p>
-      </div>
-
-      <h3> Features </h3>
-
-      <div class="par">
-      <ul>
-        <li> 👀 View the permission information for a particular metadata
-          instance,
-        </li>
-        <li> 🚀 Automate the creation (via a CI step) of a diff-based view, that
-          allows you to see the exact permission changes, on, say, a Pull
-          Request,
-        </li>
-        <li> 🔎 Various filtering/grouping options to gain a complete
-          understanding of permission changes.
-        </li>
-      </ul>
-      </div>
-
-      <h3> Try it out! </h3>
-
-      <div class="guides">
-        <div class="guide one">
-          <div class="img"> <span> 👀 </span> </div>
-          <h4> Explore the demos </h4>
-          <div class="info">
-            <p>
-            We have pre-computed a couple of diffs from the <code><a href="https://github.com/InvariantClub/demo-database/">
-                demo-database</a></code> repository that you can explore in
-            the <a href="https://metadelta.invariant.club">Metadelta UI</a>.
-            </p>
-          </div>
-          <div class="link">
-            <a href="https://metadelta.invariant.club">Take a look</a>
-          </div>
-        </div>
-
-
-        <div class="guide two">
-          <div class="img"> <span>🚀 </span> </div>
-          <h4> GitHub Action integration </h4>
-          <div class="info">
-            <p> Whenever a PR changes permissions, this workflow will
-            compute a diff and create a link to view that in the UI so
-            reviewers can understand the full impact of changes.
-            </p>
-          </div>
-          <div class="link">
-            <a href="https://github.com/InvariantClub/metadelta-github-action">Learn more</a>
-          </div>
-        </div>
-
-      </div>
-
-      <h3> Run Metadelta locally </h3>
-
-      <div class="par">
-      <p>If you would like to test out the Metadelta CLI locally, you can
-      use <a href="https://github.com/InvariantClub/metadelta/pkgs/container/metadelta">our docker image</a>.
-
-      <p>As an example this invokes the <code>diff</code>
-      command on two folders in the present working directory called
-      "<code>old</code>"
-      and "<code>new</code>":
-      </p>
-
-      <pre>
-docker run -i \
-  -v $PWD:/work \
-  ghcr.io/invariantclub/metadelta \
-  diff \
-  -o /work/old/hasura/metadata \
-  -n /work/new/hasura/metadata \
-  &gt;diff.json</pre>
-
-      <p>Then you can take the <code>diff.json</code> file and paste it into
-      the <a href="https://metadelta.invariant.club/new">Metadelta UI</a>.
-      For a more convenient workflow, we recommend using the <a href="https://github.com/InvariantClub/metadelta-github-action">GitHub
-        Action</a> integration, which you can
-      <a href="https://github.com/InvariantClub/demo-database/blob/main/.github/workflows/compute-permission-diff.yaml#L13">see in action on our demo-database.</a>
-      </p>
-
-      <p>If you would like to just run it on a pre-made example, you can clone
-      our <a href="https://github.com/InvariantClub/demo-database/">
-          demo-database</a> repo and use the scripts:
-      </p>
-
-      <pre>git clone https://github.com/InvariantClub/demo-database
-cd demo-database/
-./scripts/compute-demo-diff.sh 98b1123 3b627cd</pre>
-
-      <p>And again paste the resulting JSON output to the UI.</p>
-      </div>
-
-      <h3> Source code </h3>
-
-      <div class="par">
-        <p> Metadelta is completely open-source, you can find the code here:
-          <a href="https://github.com/InvariantClub/metadelta">InvariantClub/metadelta</a>
-          on GitHub.
-        </p>
-      </div>
-
-      <h3> Supporting this project </h3>
-
-      <div class="par">
-      <p>Metadelta will always be free for open-source projects, and is,
-      while we're in beta, free for any project at all.</p>
-
-      <p>If you have a project that you think this would be
-      useful for, or you have any other feedback, please reach out; either
-      via email: <a href="mailto:noonsilk+metadelta@gmail.com">noonsilk+metadelta@gmail.com</a>
-      or on our issue tracker: <a href="https://github.com/InvariantClub/metadelta/issues">metadelta/issues</a>.
-      </p>
-      </div>
-
-
-      <h3> FAQs </h3>
-
-      <div class="par">
-      <ul>
-        <li>
-          <b>Q:</b> Will this be compatible with Hasura V3?
-          <br />
-          <b>A:</b> Yes. It looks as if V3 will have some
-          <a href="https://hasura.io/docs/3.0/supergraph-modeling/permissions/">additional
-            permission abilities</a> that we will work to support as it comes out
-          of alpha; but our intention is to be fully compatible.
-        </li>
-      </ul>
-
-      <p> <small> Note: Metadelta is not an official Hasura product; it is
-        provided and supported entirely by Invariant Club, an independent
-        third party. </small> </p>
+        <h1><center>👶🏻</center></h1>
+        <h3>Coming soon!</h3>
+        <h1><center>🎲</center></h1>
       </div>
     </div>
   </div>
@@ -220,9 +40,6 @@ cd demo-database/
 
   <footer>
     <p>Built with love ❤️ on our one and only planet 🌏 :)
-    </p>
-    <p>
-      <a href="https://github.com/InvariantClub/">GitHub</a>
     </p>
   </footer>
 </body>

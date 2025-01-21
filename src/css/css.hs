@@ -89,6 +89,8 @@ blog = do
     "box-shadow" -: "4.7px 9.3px 9.3px hsl(0deg 0% 0% / 0.15);"
 
   div # ".content" ? do
+    display flex
+    flexDirection column
     marginTop $ px 20
   --   alignItems center
   --   flexDirection column
@@ -113,47 +115,56 @@ blog = do
 
 guides :: Css
 guides = do
+  div # ".guide-region" ? do
+    width (pct 100)
+    alignItems center
+    display flex
+    flexDirection column
+
   div # ".guides" ? do
     display flex
     flexDirection row
     flexWrap Flex.wrap
     alignItems center
     justifyContent center
+    maxWidth (px 800)
+
+    div # ".info" ? do
+      display flex
+      justifyContent spaceEvenly
+      flexDirection column
+      alignItems center
+      allPadding (px 10)
+      height (pct 100)
+      img ? do
+        allBorderRadius $ px 200
+      img # ".flip" ? do
+        "transform" -: "scale(-1, -1)"
+        "filter" -: "grayscale(1) opacity(0.7)"
 
     let mkGuide sel c =
           div # sel ? do
-            border (px 1) solid (lighten 0.0 c)
-            h4 ? (backgroundColor $ lighten 0.74 c)
-            div # ".img" ? do
-              backgroundColor $ lighten 0.74 c
-              span ? background (lighten 0.0 c)
-            div # ".link" ? do
-              a ? do
-                backgroundColor (lighten 0.3 c)
-                hover & backgroundColor (lighten 0.6 c)
+            border (px 1) solid black -- (lighten 0.0 c)
+            -- h4 ? (backgroundColor $ lighten 0.74 c)
+            -- div # ".img" ? do
+            --   backgroundColor $ lighten 0.74 c
+            --   span ? background (lighten 0.0 c)
 
     mkGuide ".guide.one"   (lighten 0.6 linkColour)
     mkGuide ".guide.two"   added
     mkGuide ".guide.three" replaced
+    mkGuide ".guide.four"  (lighten 0.3 "#c2ebfc")
 
     div # ".guide" ? do
       display flex
       flexDirection column
-      width  $ px 500
+      width  $ px 300
+      height $ px 400
       allMargin $ px 30
-      allBorderRadius $ px 20
+      allBorderRadius $ px 10
+      backgroundColor "#fff7f1"
+      alignItems center
       "box-shadow" -: "4.7px 9.3px 9.3px hsl(0deg 0% 0% / 0.15);"
-
-      div # ".img" ? do
-        borderRadius (px 20) (px 20) 0 0
-        marginBottom $ px 0
-        paddingTop    $ px 30
-        paddingBottom $ px 20
-        span ? do
-          allMargin $ px 20
-          marginBottom $ px 0
-          allPadding $ px 10
-          allBorderRadius $ px 10
 
       div ? do
         margin0
@@ -162,20 +173,13 @@ guides = do
         allMargin $ px 20
 
       h4 ? do
+        "text-shadow" -: "white 1px 1px"
         margin0
         allPadding $ px 10
         titleFont
-        fontSize $ em 1.4
-
-      div # ".link" ? do
-        marginBottom $ px 20
-        display flex
-        justifyContent center
-        alignItems center
-        a ? do
-          color black
-          allPadding      $ px 10
-          allBorderRadius $ px 10
+        fontSize $ em 0.9
+        fontStyle italic
+        fontWeight normal
 
 
 centralLayout :: Css
@@ -233,7 +237,7 @@ offerings = do
     div # ".offering" ? do
       display flex
       flexDirection column
-      maxWidth (pct 80)
+      maxWidth (pct 60)
 
       query Clay.all [Media.maxWidth 1600] $ do
         flexDirection column
@@ -351,7 +355,7 @@ basics = do
 
   p <> li <> pre ? do
     lineHeight (em 2)
-    fontSize (em 1.2)
+    fontSize (em 1)
 
   a ? do
     color black
@@ -374,4 +378,3 @@ fonts = do
     coreTextFont
     fontSize (px 22)
     color textColour
-

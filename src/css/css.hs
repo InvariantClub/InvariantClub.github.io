@@ -94,6 +94,14 @@ forms = do
     div # ".row" ? do
       marginBottom (px 20)
 
+    input # ("type" ^= "submit") ? do
+      titleFont
+      fontStyle italic
+      allPadding (px 5)
+      paddingLeft (px 8)
+      paddingRight (px 8)
+      cursor pointer
+
 
 blog :: Css
 blog = do

@@ -72,6 +72,27 @@ main = putCss
   >> centralLayout
   >> guides
   >> blog
+  >> forms
+
+forms :: Css
+forms = do
+  form ? do
+    marginLeft (px 30)
+    marginTop (px 30)
+    display flex
+    flexDirection column
+
+    input # ("type" ^= "email") ? do
+      width (px 500)
+      marginLeft (px 20)
+      lineHeight (em 1.4)
+      monoFont
+      allPadding (px 4)
+      paddingLeft (px 8)
+      paddingRight (px 8)
+
+    div # ".row" ? do
+      marginBottom (px 20)
 
 
 blog :: Css
@@ -353,7 +374,7 @@ basics = do
     margin0
     padding0
 
-  p <> li <> pre ? do
+  p <> li <> pre <> input ? do
     lineHeight (em 2)
     fontSize (em 1)
 

@@ -224,6 +224,13 @@ centralLayout = do
   div # ".banner" ? do
     backgroundColor bgColour
     allPadding (px 20)
+    display flex
+    flexDirection row
+    justifyContent spaceBetween
+    small ? a ? do
+      textDecoration none
+      fontSize (em 1.1)
+      color gray
 
   footer ? do
     alignItems center

@@ -17,6 +17,7 @@ const sidebar = [
 
 export default defineConfig({
 	title: "Invariant Club",
+	srcExclude: ["README.md"],
 	description: "",
 	head: [
 		[

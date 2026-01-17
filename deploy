@@ -29,7 +29,10 @@ rsync -a --filter='P .git'             \
          --filter='P result'           \
          --filter='P .vitepress/cache' \
          --filter='P .vitepress/dist'  \
-         --delete-excluded             \
+         --delete-excluded \
+         --no-perms \
+         --no-owner \
+         --no-group \
          result/ .
 
 

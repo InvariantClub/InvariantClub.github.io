@@ -24,8 +24,13 @@ nix run .#serve
 ```
 
 
+## Deploy
+
+``` sh
+./deploy
+```
+
+
 ## Todo
 
 - [ ] Check homepage on mobile
-- [ ] Fonts
-- [ ] Search

@@ -1,14 +1,9 @@
 @font-face {
 	font-family: "iA Writer Quattro S";
-
 	src: url("fonts/iAWriterQuattroS-Regular.ttf") format("truetype");
-
 	font-weight: normal;
-
 	font-style: normal;
-
 	font-display: swap;
-
 	font-feature-settings:
 		"calt" 1,
 		"kern" 1;
@@ -16,15 +11,10 @@
 
 @font-face {
 	font-family: "iA Writer Quattro S";
-
 	src: url("fonts/iAWriterQuattroS-Bold.ttf") format("truetype");
-
 	font-weight: bold;
-
 	font-style: normal;
-
 	font-display: swap;
-
 	font-feature-settings:
 		"calt" 1,
 		"kern" 1;
@@ -32,15 +22,10 @@
 
 @font-face {
 	font-family: "iA Writer Quattro S";
-
 	src: url("fonts/iAWriterQuattroS-Italic.ttf") format("truetype");
-
 	font-weight: normal;
-
 	font-style: italic;
-
 	font-display: swap;
-
 	font-feature-settings:
 		"calt" 1,
 		"kern" 1;
@@ -48,15 +33,10 @@
 
 @font-face {
 	font-family: "iA Writer Quattro S";
-
 	src: url("fonts/iAWriterQuattroS-BoldItalic.ttf") format("truetype");
-
 	font-weight: bold;
-
 	font-style: italic;
-
 	font-display: swap;
-
 	font-feature-settings:
 		"calt" 1,
 		"kern" 1;
@@ -64,15 +44,10 @@
 
 @font-face {
 	font-family: "iA Writer Mono S";
-
 	src: url("fonts/iAWriterMonoS-Regular.ttf") format("truetype");
-
 	font-weight: normal;
-
 	font-style: normal;
-
 	font-display: swap;
-
 	font-feature-settings:
 		"calt" 1,
 		"kern" 1;
@@ -80,15 +55,10 @@
 
 @font-face {
 	font-family: "iA Writer Mono S";
-
 	src: url("fonts/iAWriterMonoS-Bold.ttf") format("truetype");
-
 	font-weight: bold;
-
 	font-style: normal;
-
 	font-display: swap;
-
 	font-feature-settings:
 		"calt" 1,
 		"kern" 1;
@@ -96,15 +66,10 @@
 
 @font-face {
 	font-family: "iA Writer Mono S";
-
 	src: url("fonts/iAWriterMonoS-Italic.ttf") format("truetype");
-
 	font-weight: normal;
-
 	font-style: italic;
-
 	font-display: swap;
-
 	font-feature-settings:
 		"calt" 1,
 		"kern" 1;
@@ -112,15 +77,10 @@
 
 @font-face {
 	font-family: "iA Writer Mono S";
-
 	src: url("fonts/iAWriterMonoS-BoldItalic.ttf") format("truetype");
-
 	font-weight: bold;
-
 	font-style: italic;
-
 	font-display: swap;
-
 	font-feature-settings:
 		"calt" 1,
 		"kern" 1;

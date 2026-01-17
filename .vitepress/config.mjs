@@ -1,3 +1,4 @@
+import fs from "fs";
 import footnote from "markdown-it-footnote";
 import { defineConfig } from "vitepress";
 
@@ -59,8 +60,17 @@ export default defineConfig({
 		}
 	},
 
+	buildEnd(siteConfig) {
+		fs.copyFile(
+			process.cwd() + "/CNAME",
+			siteConfig.outDir + "/CNAME",
+			(e) => {},
+		);
+	},
+
 	themeConfig: {
 		outline: "deep",
+
 		search: {
 			provider: "local",
 			options: {
@@ -68,20 +78,24 @@ export default defineConfig({
 				disableQueryPersistence: true,
 			},
 		},
+
 		nav: [
 			{ text: "Articles", link: "/articles" },
 			{ text: "Templates", link: "/templates/" },
 			{ text: "FAQs", link: "/faqs" },
 		],
+
 		socialLinks: [
 			{ icon: "github", link: "https://github.com/InvariantClub/" },
 		],
+
 		sidebar: {
 			"/articles": sidebar,
 			"/templates/": sidebar,
 			"/faqs": sidebar,
 			// '/common-problems/': sidebar
 		},
+
 		footer: {
 			message: "Built with love ❤️ on our one and only planet 🌍 :)",
 		},

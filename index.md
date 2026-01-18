@@ -6,21 +6,21 @@ hero:
     🧑🏻‍💻👩🏽‍💻🧑🏼‍💻 ... → ✨🧘
   name: Reaching development nirvana through Nix
 features:
- - title: Articles
-   link: /articles
-   icon: 👀
-   details: >
-    Read more about Nix adoption, tips and tricks, and other thoughts to
-    help you on your path.
- - title: Nix templates
-   link: /templates/
-   icon: 📜
-   details: >
+- title: Articles
+  link: /articles
+  icon: 👀
+  details: >
+    Read more about Nix adoption, tips and tricks, and other thoughts to help
+    you on your path.
+- title: Nix templates
+  link: /templates/
+  icon: 📜
+  details: >
     Looking to get started with Nix? Try taking a look at our templates!
- - title: FAQs
-   link: /faqs
-   icon: 🙋
-   details: >
+- title: FAQs
+  link: /faqs
+  icon: 🙋
+  details: >
     Frequently asked questions about Nix; either in getting started or in
     everyday usage.
 ---

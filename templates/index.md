@@ -14,7 +14,7 @@ const templates =
     }
   , { title: "Python (simple)"
     , repo: "nix-python-simple"
-    , details: "A very simple Python development environment, with Nix for package management."
+    , details: "A simple Python development environment, with Nix for package management."
     , icon: "fa-python"
     , live: true
   }

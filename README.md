@@ -35,3 +35,14 @@ nix run .#serve
 
 - [ ] Check homepage on mobile
 - [ ] About/Contact page
+
+
+## Article ideas
+
+- "Gateways into Nix"
+  - Just use `nix run ...` or `nix profile install` ... to get binaries
+     without installing them.
+  - NixOS
+  - Package projects you like into nixpkgs
+  - Submit PRs to projects you use
+  - ...

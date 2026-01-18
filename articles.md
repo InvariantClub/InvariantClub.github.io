@@ -41,13 +41,3 @@ li span {
     font-size: var(--vp-code-font-size);
 }
 </style>
-
-<!--
-
-Article ideas:
-
-- "Gatways into Nix"
-  -> Just use `nix run ...` or `nix profile install` ... to get binaries
-     without installing them.
-
--->

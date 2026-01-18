@@ -20,6 +20,7 @@ This is not to say that Nix and docker are incompatible; indeed, it is very
 typical to provide "user-facing" docker images built directly from your Nix
 project!
 
+
 ## Q: Does Nix replace my existing build tools?
 
 No.
@@ -33,3 +34,12 @@ The main point is that the `nix build` produces a consistent output (i.e.
 distributable executable) across all systems _and_ aligns with the output
 of local development; without Nix, this simple property is very hard to
 achieve!
+
+
+## Q: Where can I find out what packages are available?
+
+Here: [search.nixos.org](https://search.nixos.org/packages)
+
+This is the "official" list of community-maintained packages; but part of the
+beauty of the Nix ecosystem is that it is decentralised; you can install
+packages from anywhere.

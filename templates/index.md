@@ -6,12 +6,18 @@ next: false
 
 <script setup>
 const templates =
-  [ { title: "Python + uv"
+  [ { title: "Python via uv"
     , repo: "nix-python-uv"
     , details: "A full Python project setup, with dependencies specified and managed via the `uv` package manager."
     , icon: "fa-python"
     , live: true
     }
+  , { title: "Python (simple)"
+    , repo: "nix-python-simple"
+    , details: "A very simple Python development environment, with Nix for package management."
+    , icon: "fa-python"
+    , live: true
+  }
   , { title: "JavaScript (npm)"
     , repo: "nix-js-simple"
     , details: "A devShell with nodejs for use with any npm-based JavaScript environment."

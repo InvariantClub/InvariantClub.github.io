@@ -26,7 +26,7 @@ package manager?_
 ## Is Nix just Yet Another Package Manager?
 
 In some ways, yes. But, unlike your language-level package managers, Nix is
-effectively a system-wide package mananger. That is, it lets you _install_ the
+effectively a system-wide package manager. That is, it lets you _install_ the
 language-level package managers you need! And in particular, in most cases, it
 actually reads all the information it needs about compiling your project, from
 the package manager you already use in your language of choice.
@@ -38,7 +38,7 @@ dependencies and load them into your environment.
 
 What differentiates Nix from your typical (language-based) package managers is
 that it can also install things _outside_ of that language; i.e. other
-depednencies you may have; data-transformation tools, database clients,
+dependencies you may have; data-transformation tools, database clients,
 websocket clients, etc. At this point, almost any package you can
 dream of is available on what we called "[nixpkgs](https://github.com/NixOS/nixpkgs/)";
 you can search for what you use here:
@@ -114,7 +114,7 @@ Type ".help" for more information.
 direnv: unloading
 ```
 
-Note that merely enterining into the directory gets me the tools that I need.
+Note that merely entering into the directory gets me the tools that I need.
 This setup is compatible with all IDEs.
 
 
@@ -122,8 +122,9 @@ This setup is compatible with all IDEs.
 
 Because of Nix's hashing approach; it is a moderately simple matter to
 determine if it needs to do work rebuilding, or if it can just use some
-previously-built artefact. It simply computes the hash of the entire
-dependency tree, and any point which has the same hash can be re-used.
+previously-built artifact. Nix does this automatically by simply computing the
+hash of the entire dependency tree, and any point which has the same hash can
+be re-used.
 
 This can be hugely efficient.
 
@@ -133,9 +134,8 @@ the amount of rebuilds that you do between peers.
 
 ::: info :eyes: Observation
 
-Content-based hashing means no rebuilding things that haven't changed; this
-means faster build times and less compute resources required!
-
+Nix can share build resources by using content-based hashing; this
+can mean faster and more reliable builds, and less compute resources required!
 :::
 
 ## Provision of entrypoints, and other scripts
@@ -191,7 +191,7 @@ distributable static binaries, etc.
 There is a _very_ active community bringing almost any program and package you
 can dream of into Nix. Joyfully, it is also very simple to make use of them;
 here is a collection of examples to run, say, the [QGIS](https://qgis.org/)
-Geospatial analysis software; Python at vesion 3.13; the program
+Geospatial analysis software; Python at version 3.13; the program
 [Inkscape](https://en.wikipedia.org/wiki/Inkscape), and even Python with some
 particular packages available.
 

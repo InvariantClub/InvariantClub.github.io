@@ -50,6 +50,7 @@ with inputs; {
         packages = with pkgs; [
           nodejs
           simple-http-server
+          (aspellWithDicts (d: with d; [ en en-computers ]))
         ];
       };
     };

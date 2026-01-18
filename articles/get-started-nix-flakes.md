@@ -49,7 +49,7 @@ nix run nixpkgs#jq -- --help
 ```
 
 You can test that the _flakes_ feature is active by loading a development
-shell for a simple javascript project, from our templates:
+shell for a simple JavaScript project, from our templates:
 
 ``` sh
 nix develop github:InvariantClub/nix-js-simple

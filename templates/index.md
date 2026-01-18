@@ -46,13 +46,16 @@ language you prefer to work in.
 
 For this reason, we have a growing collection of Nix templates.
 
-Let us know if you're language/ecosystem of choice is not here!
+Let us know if you'd like us to add a specific language/environment!
 
 
 ## Templates
 
-The following collection of templates provide `devShells` for building,
-running and making interactive changes to the provided codebases: in other
-words, just the typical development tasks.
+The following collection of templates provide development environment, (in Nix
+called `devShells`) for building, running and making interactive changes
+to the provided codebases: in other words, just the typical development tasks.
+
+These devShells contain all the tools + libraries needed to get started in
+the respective ecosystem.
 
 <Templates :items=templates />

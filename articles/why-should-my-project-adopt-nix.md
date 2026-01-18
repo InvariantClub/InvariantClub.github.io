@@ -2,7 +2,9 @@
 title: Why should my project adopt Nix?
 author: Noon van der Silk
 date: 2026-01-07
-next: false
+next:
+  text: Getting started with Nix (and Flakes)
+  link: /articles/get-started-nix-flakes
 prev: false
 ---
 

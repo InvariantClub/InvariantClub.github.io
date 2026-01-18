@@ -100,7 +100,7 @@ export default defineConfig({
 			message: "Built with love ❤️ on our one and only planet 🌍 :)",
 		},
 
-		lastUpdated: true,
+		lastUpdated: false,
 		lastUpdatedText: "Updated on",
 	},
 });

@@ -34,3 +34,4 @@ nix run .#serve
 ## Todo
 
 - [ ] Check homepage on mobile
+- [ ] About/Contact page

@@ -28,10 +28,9 @@ const { Layout } = DefaultTheme
 </template>
 
 <style>
-
 #main-features p {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #main-features {
@@ -46,12 +45,11 @@ const { Layout } = DefaultTheme
 
 #main-features p, #main-features li {
   font-size: 20px;
-  line-height: 50px;
+  line-height: 40px;
 }
 
 #main-features li {
   list-style: inside;
   margin-left: 10px;
 }
-
 </style>

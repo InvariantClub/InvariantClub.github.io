@@ -42,6 +42,10 @@ h1.name {
   margin-bottom: 50px;
 }
 
+h1.name span {
+  font-size: 50px;
+}
+
 .VPHomeHero .text {
   margin: auto;
   text-align: center;

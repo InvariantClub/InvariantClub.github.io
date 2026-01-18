@@ -20,7 +20,7 @@ const templates =
     }
   , { title: "Rust"
     , repo: "nix-rust"
-    , details: "A Nix envrionment for hacking and building binaries."
+    , details: "A Nix environment for hacking and building binaries."
     , icon: "fa-rust"
     , live: true
     }

@@ -54,3 +54,6 @@ nix run .#serve
 - [ ] ruby
 - [ ] agda
 - [ ] lean
+- [ ] java
+    - https://fzakaria.com/2020/07/20/packaging-a-maven-application-with-nix.html
+    - 6 years old!

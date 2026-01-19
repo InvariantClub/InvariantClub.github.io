@@ -9,36 +9,37 @@ const templates =
   [ { title: "Python via uv"
     , repo: "nix-python-uv"
     , details: "A full Python project setup, with dependencies specified and managed via the `uv` package manager."
-    , icon: "fa-python"
+    , logo: "python"
     , live: true
     }
   , { title: "Python (simple)"
     , repo: "nix-python-simple"
     , details: "A simple Python development environment, with Nix for package management."
-    , icon: "fa-python"
+    , logo: "python"
     , live: true
   }
   , { title: "JavaScript (npm)"
     , repo: "nix-js-simple"
     , details: "A devShell with nodejs for use with any npm-based JavaScript environment."
-    , icon: "fa-js"
+    , logo: "javascript"
     , live: true
     }
   , { title: "Rust"
     , repo: "nix-rust"
     , details: "A Nix environment for hacking and building binaries."
-    , icon: "fa-rust"
+    , logo: "rust"
     , live: true
     }
   , { title: "Go"
     , repo: "nix-go"
     , details: "Simple golang example to setup an environment to build a binary."
-    , icon: "fa-golang"
+    , logo: "go"
     , live: true
     }
   , { title: "Julia"
     , repo: "nix-julia"
     , details: "Julia + Pluto environment for scientific computing."
+    , logo: "julia"
     , live: true
     }
   ];

@@ -6,7 +6,10 @@
         :href='"https://github.com/InvariantClub/" + template.repo'>
         <article>
           <h3>
-            <FontAwesomeIcon v-if="template.icon" :icon='["fa-brands", template.icon]' />
+            <img v-if="template.logo"
+              width="25"
+              :src="'/images/' + template.logo + '.webp'"
+              :alt="template.logo + ' logo'" />
             {{template.title}}
           </h3>
           <p v-text="template.details"></p>
@@ -25,6 +28,11 @@ export default {
 
 <style>
 
+h3 img {
+  border-radius: unset !important;
+  padding-bottom: 10px;
+}
+
 .templates__grid h3 {
   font-family: var(--vp-font-family-base);
 }
@@ -37,6 +45,8 @@ export default {
   border: solid 1px #00000000;
   padding: 15px;
   background: var(--vp-c-bg-soft);
+  display: flex;
+  align-items: flex-start;
 }
 
 .templates__grid a:hover {

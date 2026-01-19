@@ -35,6 +35,7 @@ nix run .#serve
 
 - [ ] Check homepage on mobile
 - [ ] About/Contact page
+- [ ] Default font size
 
 
 ## Article ideas
@@ -46,3 +47,10 @@ nix run .#serve
   - Package projects you like into nixpkgs
   - Submit PRs to projects you use
   - ...
+
+## Template ideas
+
+- [ ] clojure
+- [ ] ruby
+- [ ] agda
+- [ ] lean

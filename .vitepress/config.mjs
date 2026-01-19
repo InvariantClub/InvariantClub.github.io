@@ -19,7 +19,7 @@ const sidebar = [
 export default defineConfig({
 	title: "Invariant Club",
 	srcExclude: ["README.md"],
-	description: "",
+	description: "Reaching development nirvana through Nix",
 	head: [
 		[
 			"link",

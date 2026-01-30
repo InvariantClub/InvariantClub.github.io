@@ -201,7 +201,7 @@ It was done! I could run `nix build` and get a resulting `QR.rb` file that was
 exactly equal to the original! :tada:
 
 
-### Surprise conclusion ?
+### Surprise conclusion?
 
 So I did this, and submitted my PR and it was diligently accepted? And I
 basked in my own brilliance and unique ability to achieve this personal goal?
@@ -220,7 +220,7 @@ I sat back, and waited for the love to roll in. "May as well see what that PR
 is about" I thought. [I clicked
 it](https://github.com/mame/quine-relay/pull/162), and found ...
 
-![Sandaru's Nix PR](/images/blog/sandaru-pr.webp)
+[![Sandaru's Nix PR](/images/blog/sandaru-pr.webp)](https://github.com/mame/quine-relay/pull/162)
 
 :astonished: :exploding_head: !
 
@@ -240,6 +240,21 @@ magic solution to discover; it was possible to achieve the outcome in a
 variety of ways!
 
 For me this is the best possible outcome.
+
+
+### Concluding thoughts
+
+So is that it? Is Nix amazingly perfect and should be immediately adopted for
+every programming language? Maybe.
+
+But I will note that there is a world of difference between simply _running_ a
+programming languages compiler or interpreter; and doing every-day
+incremeintal development _and_ keep a maintainable Nix setup that works for
+everyone in your team. Some programming language ecosystems are better set up
+with Nix than others in this sense.
+
+But the good news, is that all of this can be improved. And the benefits you
+get are huge!
 
 
 ## Appendix
@@ -350,7 +365,15 @@ For me this is the best possible outcome.
 ### The code
 
 My changes are easiest to browse here:
-[silky/quine-relay/pull/1](https://github.com/silky/quine-relay/pull/1).
+[silky/quine-relay/nix](https://github.com/silky/quine-relay/tree/nix/nix).
+
+There you can find:
+
+- the `flake.nix` entrypoint,
+- `pkgs.nix` which has all the Nix derivations for the packages that weren't
+  in nixpkgs
+- `outputs.nix` that has each step of the quine expressed as a simple
+  call to `runCommand ...`
 
 If you prefer, you can just run it like so:
 
@@ -362,4 +385,4 @@ Then you will find all the source files in `./result`.
 
 Perhaps the most fun, at least for me personally, was to see what the
 resulting [piet program](https://esolangs.org/wiki/Piet) looks like (check
-`QR.png.)
+`QR.png`.)

@@ -11,8 +11,17 @@
 	--vp-sidebar-bg-color: #333333;
 }
 
+h5 {
+	margin-top: 20px;
+	font-family: var(--vp-font-family-header);
+}
+
 h1.name {
 	font-style: italic;
+}
+
+.vp-doc code {
+	color: black !important;
 }
 
 p a,

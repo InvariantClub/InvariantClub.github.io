@@ -57,3 +57,12 @@ nix run .#serve
 - [ ] java
     - https://fzakaria.com/2020/07/20/packaging-a-maven-application-with-nix.html
     - 6 years old!
+- [ ] rstudio
+
+## Other ideas
+
+- "Nix oneliners"
+
+  - `rstudioWrapper.override{ packages = with rPackages; [ ggplot2 dplyr xts ]; };`
+
+- nix flake check --override-input ...

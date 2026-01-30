@@ -8,7 +8,11 @@ next:
 prev: false
 ---
 
-# Why should my project adopt Nix?
+<ArticleHeader
+  title="Why should my project adopt Nix?"
+  author="Noon van der Silk"
+  image="noon"
+/>
 
 Perhaps someone has submitted a PR adding a `flake.nix` to your repo. Perhaps
 you have been reading about [Nix](https://nixos.org/); talking to your

@@ -32,7 +32,10 @@ export default defineConfig({
 
 	markdown: {
 		lineNumbers: true,
-		theme: "one-dark-pro",
+		theme: {
+			light: "min-light",
+			dark: "nord",
+		},
 		config: (md) => {
 			md.use(footnote);
 		},

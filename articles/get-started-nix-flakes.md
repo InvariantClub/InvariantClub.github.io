@@ -2,13 +2,19 @@
 title: Getting started with Nix (and flakes)
 author: Noon van der Silk
 date: 2026-01-18
-next: false
 prev:
   text: Why should my project adopt Nix?
   link: /articles/why-should-my-project-adopt-nix
+next:
+  text: Packaging 128 languages with Nix
+  link: /articles/packaging-128-programming-languages-with-nix
 ---
 
-# Getting started with Nix (and flakes)
+<ArticleHeader
+  title="Getting started with Nix (and flakes)"
+  author="Noon van der Silk"
+  image="noon"
+/>
 
 If you want to work with Nix in the modern age, you're going to need to do
 slightly more then the website suggests; we need to enable a few extra options
@@ -79,7 +85,7 @@ Steps:
 2. Install [nix-direnv](https://github.com/nix-community/nix-direnv)
 
 
-#### 5.Start hacking!
+#### 5. Start hacking!
 
 You're all set! You've now got a perfect Nix setup for exploring and extending
 one of our [templates](/templates/)!

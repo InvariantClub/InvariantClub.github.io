@@ -11,6 +11,7 @@ const sidebar = [
 			{ text: "Articles", link: "/articles" },
 			{ text: "Templates", link: "/templates/" },
 			{ text: "FAQs", link: "/faqs" },
+			{ text: "Contact", link: "/contact" },
 			// { text: 'Common problems', link: '/common-problems/' }
 		],
 	},
@@ -86,6 +87,7 @@ export default defineConfig({
 			{ text: "Articles", link: "/articles" },
 			{ text: "Templates", link: "/templates/" },
 			{ text: "FAQs", link: "/faqs" },
+			{ text: "Contact", link: "/contact" },
 		],
 
 		socialLinks: [
@@ -96,7 +98,7 @@ export default defineConfig({
 			"/articles": sidebar,
 			"/templates/": sidebar,
 			"/faqs": sidebar,
-			// '/common-problems/': sidebar
+			"/contact": sidebar,
 		},
 
 		footer: {

@@ -24,6 +24,10 @@ h1.name {
 	color: black !important;
 }
 
+.dark .vp-doc code {
+	color: white !important;
+}
+
 p a,
 .vp-doc a[href] {
 	text-decoration: none;

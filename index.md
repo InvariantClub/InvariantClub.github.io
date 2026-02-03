@@ -23,6 +23,12 @@ features:
   details: >
     Frequently asked questions about Nix; either in getting started or in
     everyday usage.
+- icon: 💬
+  title: Let's have a chat!
+  link: /contact
+  details: >
+    Ready to stop worrying about the build and focus on the real work?
+    Let's chat!
 ---
 
 <style>

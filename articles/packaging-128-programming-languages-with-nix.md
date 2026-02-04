@@ -382,4 +382,4 @@ Then you will find all the source files in `./result`.
 
 Perhaps the most fun, at least for me personally, was to see what the
 resulting [piet program](https://esolangs.org/wiki/Piet) looks like (check
-`./result/php/share/QR.png`.)
+`./result/php-to-piet/share/QR.png`.)

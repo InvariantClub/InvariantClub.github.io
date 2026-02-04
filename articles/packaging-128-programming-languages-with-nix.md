@@ -96,31 +96,28 @@ Our approach for languages _already_ in Nix was to just write a bunch of
 expressions ultimately of this form:
 
 ``` nix
-with pkgs; runCommand "QR.rs" {
+ruby = ...
+
+rust = with pkgs; stdenv.mkDerivation {
+  src = "${ruby.out}/share";
   nativeBuildInputs = [ rust ];
-} ''
-rustc QR.rs
-./QR > QR.scala
-'';
-```
-
-Only some minor changes to make each subsequent step depend on the derivation output of
-the prior one, so it becomes:
-
-``` nix
-ruby-to-rust = ...
-
-rust-to-scala = with pkgs; runCommand "QR.rs" {
-    nativeBuildInputs = [ rust ];
-  } ''
-  rustc ${ruby-to-rust} -o QR
-  ./QR > $out
+  buildPhase = ''
+    rustc QR.rs
+    ./QR > QR.scala
   '';
+  installPhase = ''
+    mkdir -p $out/share
+    cp QR.scala $out/share/
+  '';
+};
 ```
 
-This basic format will actually serve for every step. The only question is how
-we get the necessary compilers/interpreters for the languages that aren't
-present.
+While there was a little bit of extra busywork, this basic format will
+actually served for every step: at the nth step, look at step n-1 and step n+1
+to work out what to produce.
+
+The only question is how we get the necessary compilers/interpreters for the
+languages that aren't present.
 
 
 ### Languages we had to manually package
@@ -373,7 +370,7 @@ There you can find:
 - `pkgs.nix` which has all the Nix derivations for the packages that weren't
   in nixpkgs
 - `outputs.nix` that has each step of the quine expressed as a simple
-  call to `runCommand ...`
+  call, ultimately, to `mkDerivation ...`
 
 If you prefer, you can just run it like so:
 
@@ -385,4 +382,4 @@ Then you will find all the source files in `./result`.
 
 Perhaps the most fun, at least for me personally, was to see what the
 resulting [piet program](https://esolangs.org/wiki/Piet) looks like (check
-`QR.png`.)
+`./result/php/share/QR.png`.)

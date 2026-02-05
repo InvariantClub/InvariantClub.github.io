@@ -383,3 +383,12 @@ Then you will find all the source files in `./result`.
 Perhaps the most fun, at least for me personally, was to see what the
 resulting [piet program](https://esolangs.org/wiki/Piet) looks like (check
 `./result/php-to-piet/share/QR.png`.)
+
+### Bonus content
+
+If you feel like playing around adding some new languages, take a look at this
+PR: [Experiment with other
+languages](https://github.com/silky/quine-relay/pull/2); you just need to look
+at editing
+[./src/code-gen.rb](https://github.com/silky/quine-relay/blob/more-languages/src/code-gen.rb)
+and then run `rake` to generate `QR.rb`.

@@ -1,7 +1,7 @@
 ---
 title: How to monorepo with Nix
 author: Noon van der Silk
-date: 2026-02-21
+date: 2026-02-18
 prev:
   text: Packaging 128 languages with Nix
   link: /articles/packaging-128-programming-languages-with-nix

@@ -48,6 +48,7 @@ nix run .#serve
   - Submit PRs to projects you use
   - ...
 
+
 ## Template ideas
 
 - [ ] clojure
@@ -58,6 +59,7 @@ nix run .#serve
     - https://fzakaria.com/2020/07/20/packaging-a-maven-application-with-nix.html
     - 6 years old!
 - [ ] rstudio
+
 
 ## Other ideas
 

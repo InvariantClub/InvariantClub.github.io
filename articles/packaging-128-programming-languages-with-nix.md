@@ -5,7 +5,9 @@ date: 2026-01-30
 prev:
   text: Getting started with Nix (and Flakes)
   link: /articles/get-started-nix-flakes
-next: false
+next:
+  text: How to monorepo with Nix
+  link: /articles/how-to-monorepo-with-nix
 ---
 
 <ArticleHeader

@@ -89,3 +89,5 @@ Steps:
 
 You're all set! You've now got a perfect Nix setup for exploring and extending
 one of our [templates](/templates/)!
+
+<ReachOut />

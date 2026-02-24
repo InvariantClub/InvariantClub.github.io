@@ -23,7 +23,7 @@ features:
   details: >
     Frequently asked questions about Nix; either in getting started or in
     everyday usage.
-- icon: 💬
+- icon: 👋🏻
   title: Let's have a chat!
   link: /contact
   details: >

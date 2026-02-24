@@ -3,9 +3,9 @@
     <h3> 👋🏻 Hello! </h3>
     <div>
       <p>
-        I'd be very happy to help you in your Nix journey. If you're
+        I'd be very happy to help you on your Nix journey. If you're
         inspired, intrigued, stuck, or otherwise keen to make some progress,
-        then please get in <a href="/contact">contact</a> :)
+        then please do get in <a href="/contact">contact</a> :)
       </p>
     </div>
   </article>

@@ -115,7 +115,8 @@ Let's explore the pros and cons a little bit.
     _Pros_:
       - Simple
       - Best possible isolation: fast hacking, no overlap problems, etc
-      - "Reversible"
+      - "Reversible" - it could look a little like you copy-and-pasted all your
+      independent repos in one big one. Easy to undo.
 
     _Cons_:
       - Lose ability to easily interact with other components

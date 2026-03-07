@@ -31,4 +31,8 @@
   margin-left: 30px;
   margin-right: 30px;
 }
+
+.dark #reach-out {
+  background: #4e32a8;
+}
 </style>

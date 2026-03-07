@@ -4,11 +4,13 @@
 	--vp-font-family-mono: "Fira Code", monospace;
 	--vp-sidebar-bg-color: #fcf9f0;
 	--vp-custom-block-info-bg: #f0f6ff;
+  --vp-border-bottom: blue;
 }
 
 .dark {
 	--vp-custom-block-info-bg: #333333;
 	--vp-sidebar-bg-color: #333333;
+  --vp-border-bottom: #ff00ae;
 }
 
 h5 {
@@ -42,7 +44,7 @@ h2 span {
 
 p a:hover,
 .vp-doc a[href]:hover {
-	border-bottom: solid 2px blue;
+	border-bottom: solid 2px var(--vp-border-bottom);
 }
 
 .language-txt > .lang,

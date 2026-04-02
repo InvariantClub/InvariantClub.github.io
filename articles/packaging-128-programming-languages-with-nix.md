@@ -395,4 +395,8 @@ at editing
 [./src/code-gen.rb](https://github.com/silky/quine-relay/blob/more-languages/src/code-gen.rb)
 and then run `rake` to generate `QR.rb`.
 
+There's also a video based on this article:
+[TechTalks #6 | Packaging 128 programming languages with Nix](https://www.youtube.com/watch?v=TKHKIf38aqw); note that it was presented to
+an audience unfamiliar with Nix; so a lot of time is spent on background.
+
 <ReachOut />

@@ -234,8 +234,10 @@ just be jumping into the `frontend` folder and simply running:
 npm run dev
 ```
 
-You'll perhaps have some errors
-
+You'll perhaps have some errors when trying to hit pages that require the
+backend, but you will otherwise be able to do frontend development. This is
+fine if you're just styling static things; but more often than not you'll want
+_some_ kind of backend accessible.
 
 #### Option 1. Backend running _inside_ the devShell
 

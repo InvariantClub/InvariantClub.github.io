@@ -1,7 +1,7 @@
 ---
 title: "Announcement: Nix Workshop in Edinburgh!"
 author: Noon van der Silk
-date: 2026-06-13
+date: 2026-07-06
 next: false
 ---
 

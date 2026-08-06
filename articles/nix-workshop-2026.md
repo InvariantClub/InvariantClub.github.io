@@ -1,7 +1,7 @@
 ---
 title: "Announcement: Nix Workshop in Edinburgh!"
 author: Noon van der Silk
-date: 2026-07-06
+date: 2026-08-06
 next: false
 ---
 
@@ -13,7 +13,26 @@ next: false
 
 ![Nix Workshop Edinburgh](/images/blog/nix-summer-2026.webp)
 
-Very excited to announce our first Nix workshop!
+I'm very excited to announce our first Nix workshop!
+
+### Wait, what is Nix again?
+
+[Nix](https://nixos.org/) is a whole-system package manager and development
+tool. It can bring in _all_ dependencies, so you never need to again worry
+about "Works On My Machine™"-style problems ever again!^[For the most part;
+[of course there are
+caveats](https://fzakaria.com/2026/07/30/the-nix-sandbox-is-a-hidden-input),
+but Nix is the best-in-class here.]
+
+Lots of teams are using it to:
+
+- Set up consistent developer environments,
+- Reduce friction for new contributors,
+- Manage CI systems easily,
+- Reduce the amount of compute with artifact caching,
+- Build deployable packages easily.
+
+### The workshop
 
 Join us for a full day of hands-on hacking on Nix; covering:
 
@@ -28,17 +47,17 @@ Join us for a full day of hands-on hacking on Nix; covering:
 
 - *When*: 29th of September
 - *Cost*: £320.00 + VAT
-- *Tickets*: [Nix Workshop ∘ Edinburgh ∘ September 2026](https://luma.com/k65ttfw3)
+- *Tickets*: [Nix Workshop - Edinburgh - September 2026](https://luma.com/k65ttfw3)
 - *Where*: [CodeBase](https://maps.app.goo.gl/zb6wzxkEbsALbaEA8), Edinburgh.
 
 
 ### Why a Nix workshop?
 
 - Nix is amazing!
-- Getting started alone is very challenging
-- Learn in a friendly small-group environment
-- Hands on experience
-- BYO ecosystems, get specific advice
+- Getting started alone is very challenging,
+- Learn in a friendly small-group environment,
+- Hands on experience,
+- BYO ecosystems, get specific advice.
 
 ### Who should attend?
 
@@ -49,7 +68,9 @@ People who are:
   activities as we go.
 
 - _Excited to learn_: Our goal will be to gain a deep and functional
-  understanding of Nix and how to use it. We don't
+  understanding of Nix and how to use it. Our aim isn't ticking off exercises,
+  but being able to work with confidence in a sophisticated,
+  powerful, but complex ecosystem.
 
 #### Which programming languages will you support?
 

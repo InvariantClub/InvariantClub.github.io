@@ -46,7 +46,7 @@ Join us for a full day of hands-on hacking on Nix; covering:
 ### Essentials: Where/When/How much
 
 - *When*: 29th of September
-- *Cost*: £320.00 + VAT
+- *Cost*: £320.00
 - *Tickets*: [Nix Workshop - Edinburgh - September 2026](https://luma.com/k65ttfw3)
 - *Where*: [CodeBase](https://maps.app.goo.gl/zb6wzxkEbsALbaEA8), Edinburgh.
 

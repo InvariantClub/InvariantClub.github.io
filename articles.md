@@ -14,13 +14,15 @@ const sortedPosts = getSorted( posts );
 # Articles
 
 <ul>
-  <li v-for="post of sortedPosts">
-    <strong>
-      <a :href="post.url">{{ post.frontmatter.title }}</a>
-    </strong>
-    <br />
-    <span>{{ formatDate( post.frontmatter.date ) }}</span>
- </li>
+  <template v-for="post of sortedPosts">
+    <li v-if="!post.frontmatter.hidden">
+      <strong>
+        <a :href="post.url">{{ post.frontmatter.title }}</a>
+      </strong>
+      <br />
+      <span>{{ formatDate( post.frontmatter.date ) }}</span>
+    </li>
+ </template>
 </ul>
 
 <style scoped>
